@@ -79,13 +79,12 @@ jwt.secret=${JWT_SECRET}
 jwt.expiration=${JWT_EXPIRATION:86400000}
 ```
 
-
-
 The app will start on `http://localhost:8080`
 
 ## API Endpoints
 
 ### Sign Up
+
 ```http
 POST /api/v1/auth/signup
 Content-Type: application/json
@@ -97,6 +96,7 @@ Content-Type: application/json
 ```
 
 ### Sign In
+
 ```http
 POST /api/v1/auth/signin
 Content-Type: application/json
@@ -108,13 +108,35 @@ Content-Type: application/json
 ```
 
 **Response:**
+
 ```json
 {
   "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
 }
 ```
 
+### Books API (`/api/v1/books`)
 
+Implemented in `src/main/java/com/alamin/spring_auth/controllers/BookController.java`.
+
+- `GET /api/v1/books` — returns a list of sample books (`Book1`, `Book2`, `Book3`).
+- `POST /api/v1/books` — echoes back the request body as a `String`.
+
+#### Examples
+
+**Get all books**
+
+```bash
+curl -X GET http://localhost:8080/api/v1/books
+```
+
+**Create a book (echo request body)**
+
+```bash
+curl -X POST http://localhost:8080/api/v1/books \
+  -H "Content-Type: text/plain" \
+  -d "My New Book"
+```
 
 ## Security
 
@@ -123,8 +145,6 @@ Content-Type: application/json
 - CSRF protection disabled for API
 - Input validation
 - SQL injection prevention via JPA
-
-
 
 ## Author
 
