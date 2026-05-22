@@ -79,15 +79,7 @@ jwt.secret=${JWT_SECRET}
 jwt.expiration=${JWT_EXPIRATION:86400000}
 ```
 
-## Running the Application
 
-```bash
-# Using Maven wrapper
-./mvnw spring-boot:run
-
-# Or using Maven
-mvn spring-boot:run
-```
 
 The app will start on `http://localhost:8080`
 
@@ -122,21 +114,7 @@ Content-Type: application/json
 }
 ```
 
-## Usage Examples
 
-### Using cURL
-
-```bash
-# Sign up
-curl -X POST http://localhost:8080/api/v1/auth/signup \
-  -H "Content-Type: application/json" \
-  -d '{"email":"test@example.com","password":"test123"}'
-
-# Sign in
-curl -X POST http://localhost:8080/api/v1/auth/signin \
-  -H "Content-Type: application/json" \
-  -d '{"login":"test@example.com","password":"test123"}'
-```
 
 ## Security
 
@@ -146,16 +124,7 @@ curl -X POST http://localhost:8080/api/v1/auth/signin \
 - Input validation
 - SQL injection prevention via JPA
 
-## Build
 
-```bash
-mvn clean package
-java -jar target/spring_auth-0.0.1-SNAPSHOT.jar
-```
-
-## License
-
-MIT License
 
 ## Author
 
